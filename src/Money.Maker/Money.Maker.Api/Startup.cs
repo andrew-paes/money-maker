@@ -9,11 +9,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
-using Money.Maker.Repository;
-//using MySql.Data.EntityFrameworkCore;
-using Pomelo.EntityFrameworkCore.MySql;
+using Money.Maker.Repository.Util;
+using Money.Maker.Service.Interfaces;
+using Money.Maker.Service.Services;
 
 namespace Money.Maker.Api
 {
@@ -29,7 +27,10 @@ namespace Money.Maker.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<DataContext>(options => options.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
+            DataSettings.ConnectionString = Configuration.GetConnectionString("DefaultConnection");
+
+            services.RegisterServices();
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
@@ -47,6 +48,16 @@ namespace Money.Maker.Api
 
             app.UseHttpsRedirection();
             app.UseMvc();
+        }
+    }
+
+    public static class ServiceExtensions
+    {
+        public static IServiceCollection RegisterServices(this IServiceCollection services)
+        {
+            services.AddTransient<IStateService, StateService>();
+            
+            return services;
         }
     }
 }

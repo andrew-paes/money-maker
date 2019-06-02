@@ -4,9 +4,8 @@ using System.Text;
 
 namespace Money.Maker.Domain.DataModels
 {
-    public class Gender
+    public class Gender : GenericModel
     {
-        public int Id { get; set; }
         public String Type { get; set; }
     }
 }

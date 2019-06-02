@@ -10,12 +10,12 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
-    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="2.2.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Money.Maker.Domain\Money.Maker.Domain.csproj" />
     <ProjectReference Include="..\Money.Maker.Repository\Money.Maker.Repository.csproj" />
+    <ProjectReference Include="..\Money.Maker.Service\Money.Maker.Service.csproj" />
   </ItemGroup>
 
 </Project>

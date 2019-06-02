@@ -9,7 +9,7 @@ using Money.Maker.Repository;
 namespace Money.Maker.Repository.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20190602170347_InitialMigration")]
+    [Migration("20190602190737_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -183,6 +183,10 @@ namespace Money.Maker.Repository.Migrations
 
                     b.Property<int?>("CityId");
 
+                    b.Property<DateTime?>("CreatedDate");
+
+                    b.Property<DateTime?>("ModifiedDate");
+
                     b.Property<int>("Number");
 
                     b.Property<string>("Street");
@@ -198,6 +202,10 @@ namespace Money.Maker.Repository.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime?>("CreatedDate");
+
+                    b.Property<DateTime?>("ModifiedDate");
 
                     b.Property<string>("Name");
 
@@ -219,9 +227,13 @@ namespace Money.Maker.Repository.Migrations
 
                     b.Property<int?>("BirthPlaceId");
 
+                    b.Property<DateTime?>("CreatedDate");
+
                     b.Property<int?>("GenderId");
 
                     b.Property<int?>("MaritalStatusId");
+
+                    b.Property<DateTime?>("ModifiedDate");
 
                     b.Property<string>("Name");
 
@@ -245,6 +257,10 @@ namespace Money.Maker.Repository.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<DateTime?>("CreatedDate");
+
+                    b.Property<DateTime?>("ModifiedDate");
+
                     b.Property<string>("Type");
 
                     b.HasKey("Id");
@@ -256,6 +272,10 @@ namespace Money.Maker.Repository.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime?>("CreatedDate");
+
+                    b.Property<DateTime?>("ModifiedDate");
 
                     b.Property<string>("Name");
 
@@ -269,6 +289,8 @@ namespace Money.Maker.Repository.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<DateTime?>("CreatedDate");
+
                     b.Property<int?>("CustomerId");
 
                     b.Property<string>("Description");
@@ -276,6 +298,8 @@ namespace Money.Maker.Repository.Migrations
                     b.Property<decimal>("IncomeTax");
 
                     b.Property<decimal>("ManagementFee");
+
+                    b.Property<DateTime?>("ModifiedDate");
 
                     b.Property<string>("Name");
 
@@ -293,6 +317,10 @@ namespace Money.Maker.Repository.Migrations
 
                     b.Property<string>("Code");
 
+                    b.Property<DateTime?>("CreatedDate");
+
+                    b.Property<DateTime?>("ModifiedDate");
+
                     b.Property<string>("Name");
 
                     b.HasKey("Id");
@@ -307,9 +335,11 @@ namespace Money.Maker.Repository.Migrations
 
                     b.Property<decimal>("Amount");
 
-                    b.Property<DateTime>("CreatedDate");
+                    b.Property<DateTime?>("CreatedDate");
 
                     b.Property<int?>("CustomerId");
+
+                    b.Property<DateTime?>("ModifiedDate");
 
                     b.Property<bool>("Type");
 

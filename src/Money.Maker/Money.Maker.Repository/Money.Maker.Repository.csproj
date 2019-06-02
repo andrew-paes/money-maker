@@ -6,11 +6,7 @@
 
   <ItemGroup>
     <Compile Remove="Migrations\20190602141004_InitialMigration.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Interfaces\" />
-    <Folder Include="Repositories\" />
+    <Compile Remove="Migrations\20190602185740_InitialMigration.cs" />
   </ItemGroup>
 
   <ItemGroup>

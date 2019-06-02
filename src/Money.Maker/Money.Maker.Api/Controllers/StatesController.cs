@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Money.Maker.Domain.DataModels;
 using Money.Maker.Repository;
+using Money.Maker.Service.Interfaces;
 
 namespace Money.Maker.Api.Controllers
 {
@@ -12,18 +13,19 @@ namespace Money.Maker.Api.Controllers
     [ApiController]
     public class StatesController : ControllerBase
     {
-        public readonly DataContext _context;
+        private readonly IStateService _service;
 
-        public StatesController(DataContext context)
+        public StatesController(IStateService service)
         {
-            _context = context;
+            _service = service;
         }
 
         // GET api/values
         [HttpGet]
         public ActionResult<IEnumerable<State>> Get()
         {
-            return _context.States.ToList();
+            //return Ok(_context.States.ToList());
+            return Ok(_service.Get());
         }
 
         // GET api/values/5

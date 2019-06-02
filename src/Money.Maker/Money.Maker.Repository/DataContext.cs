@@ -1,15 +1,19 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Money.Maker.Domain.DataModels;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using Money.Maker.Repository.Util;
 
 namespace Money.Maker.Repository
 {
     public class DataContext : IdentityDbContext
     {
-        public DataContext(DbContextOptions<DataContext> options) : base(options) { }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder.UseMySql(DataSettings.ConnectionString);
+            }
+        }
 
         public DbSet<Address> Addresses { get; set; }
         public DbSet<City> Cities { get; set; }

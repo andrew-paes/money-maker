@@ -53,6 +53,8 @@ namespace Money.Maker.Repository.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    CreatedDate = table.Column<DateTime>(nullable: true),
+                    ModifiedDate = table.Column<DateTime>(nullable: true),
                     Type = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -66,6 +68,8 @@ namespace Money.Maker.Repository.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    CreatedDate = table.Column<DateTime>(nullable: true),
+                    ModifiedDate = table.Column<DateTime>(nullable: true),
                     Name = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -79,6 +83,8 @@ namespace Money.Maker.Repository.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    CreatedDate = table.Column<DateTime>(nullable: true),
+                    ModifiedDate = table.Column<DateTime>(nullable: true),
                     Name = table.Column<string>(nullable: true),
                     Code = table.Column<string>(nullable: true)
                 },
@@ -199,6 +205,8 @@ namespace Money.Maker.Repository.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    CreatedDate = table.Column<DateTime>(nullable: true),
+                    ModifiedDate = table.Column<DateTime>(nullable: true),
                     Name = table.Column<string>(nullable: true),
                     StateId = table.Column<int>(nullable: true)
                 },
@@ -219,6 +227,8 @@ namespace Money.Maker.Repository.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    CreatedDate = table.Column<DateTime>(nullable: true),
+                    ModifiedDate = table.Column<DateTime>(nullable: true),
                     Street = table.Column<string>(nullable: true),
                     Number = table.Column<int>(nullable: false),
                     CityId = table.Column<int>(nullable: true)
@@ -240,6 +250,8 @@ namespace Money.Maker.Repository.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    CreatedDate = table.Column<DateTime>(nullable: true),
+                    ModifiedDate = table.Column<DateTime>(nullable: true),
                     Name = table.Column<string>(nullable: true),
                     SocialCode = table.Column<string>(nullable: true),
                     GenderId = table.Column<int>(nullable: true),
@@ -282,6 +294,8 @@ namespace Money.Maker.Repository.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    CreatedDate = table.Column<DateTime>(nullable: true),
+                    ModifiedDate = table.Column<DateTime>(nullable: true),
                     Name = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true),
                     ManagementFee = table.Column<decimal>(nullable: false),
@@ -305,9 +319,10 @@ namespace Money.Maker.Repository.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    CreatedDate = table.Column<DateTime>(nullable: true),
+                    ModifiedDate = table.Column<DateTime>(nullable: true),
                     Type = table.Column<bool>(nullable: false),
                     Amount = table.Column<decimal>(nullable: false),
-                    CreatedDate = table.Column<DateTime>(nullable: false),
                     CustomerId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>

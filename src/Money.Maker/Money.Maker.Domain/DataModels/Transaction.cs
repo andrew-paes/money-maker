@@ -4,11 +4,9 @@ using System.Text;
 
 namespace Money.Maker.Domain.DataModels
 {
-    public class Transaction
+    public class Transaction : GenericModel
     {
-        public int Id { get; set; }
         public Boolean Type { get; set; }
         public Decimal Amount { get; set; }
-        public DateTime CreatedDate { get; set; }
     }
 }
