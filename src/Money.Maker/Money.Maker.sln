@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2016
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Money.Maker.Api", "Money.Maker.Api\Money.Maker.Api.csproj", "{26DD8783-E0DD-4DD8-BD0A-D98CA9235CA4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Money.Maker.Api", "Money.Maker.Api\Money.Maker.Api.csproj", "{26DD8783-E0DD-4DD8-BD0A-D98CA9235CA4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Applcation", "Applcation", "{1A05BA0A-4C4F-4268-B577-F515DDE2300A}"
 EndProject
@@ -11,11 +11,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{2ED6BD4A
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libs", "Libs", "{A836CD3F-85F0-491C-BC04-A119A54EE148}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Money.Maker.Test", "Money.Maker.Test\Money.Maker.Test.csproj", "{624E791E-66FA-4189-B218-342B350A5219}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Money.Maker.Test", "Money.Maker.Test\Money.Maker.Test.csproj", "{624E791E-66FA-4189-B218-342B350A5219}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Money.Maker.Domain", "Money.Maker.Domain\Money.Maker.Domain.csproj", "{1106FDD6-FC3C-4AD9-83F2-4EEA9E323113}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Money.Maker.Domain", "Money.Maker.Domain\Money.Maker.Domain.csproj", "{1106FDD6-FC3C-4AD9-83F2-4EEA9E323113}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Money.Maker.Repository", "Money.Maker.Repository\Money.Maker.Repository.csproj", "{58186A69-73F4-494B-96DC-16CE2FFFFD13}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Money.Maker.Repository", "Money.Maker.Repository\Money.Maker.Repository.csproj", "{58186A69-73F4-494B-96DC-16CE2FFFFD13}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Money.Maker.Service", "Money.Maker.Service\Money.Maker.Service.csproj", "{ACBC1387-9926-45B3-ABDB-4D764376726D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{58186A69-73F4-494B-96DC-16CE2FFFFD13}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{58186A69-73F4-494B-96DC-16CE2FFFFD13}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{58186A69-73F4-494B-96DC-16CE2FFFFD13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACBC1387-9926-45B3-ABDB-4D764376726D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACBC1387-9926-45B3-ABDB-4D764376726D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACBC1387-9926-45B3-ABDB-4D764376726D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACBC1387-9926-45B3-ABDB-4D764376726D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -48,6 +54,7 @@ Global
 		{624E791E-66FA-4189-B218-342B350A5219} = {2ED6BD4A-04DB-421F-AF9A-4A53C5B043B4}
 		{1106FDD6-FC3C-4AD9-83F2-4EEA9E323113} = {1A05BA0A-4C4F-4268-B577-F515DDE2300A}
 		{58186A69-73F4-494B-96DC-16CE2FFFFD13} = {1A05BA0A-4C4F-4268-B577-F515DDE2300A}
+		{ACBC1387-9926-45B3-ABDB-4D764376726D} = {1A05BA0A-4C4F-4268-B577-F515DDE2300A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EA539459-1F71-4B34-BB6C-6839708AA3FF}

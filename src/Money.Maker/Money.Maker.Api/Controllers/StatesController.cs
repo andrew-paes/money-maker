@@ -3,18 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Money.Maker.Domain.DataModels;
+using Money.Maker.Repository;
 
 namespace Money.Maker.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ValuesController : ControllerBase
+    public class StatesController : ControllerBase
     {
+        public readonly DataContext _context;
+
+        public StatesController(DataContext context)
+        {
+            _context = context;
+        }
+
         // GET api/values
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public ActionResult<IEnumerable<State>> Get()
         {
-            return new string[] { "value1", "value2" };
+            return _context.States.ToList();
         }
 
         // GET api/values/5
