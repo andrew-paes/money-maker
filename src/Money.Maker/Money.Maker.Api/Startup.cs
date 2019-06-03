@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Money.Maker.Repository.Util;
 using Money.Maker.Service.Util;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace Money.Maker.Api
 {
@@ -30,6 +31,28 @@ namespace Money.Maker.Api
             services.RegisterServices();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Info
+                {
+                    Version = "v1",
+                    Title = "Money Maker API",
+                    Description = String.Empty,
+                    TermsOfService = "None",
+                    Contact = new Contact
+                    {
+                        Name = "Andrew Paes",
+                        Email = "andrew.paes@gmail.com",
+                        Url = "https://www.linkedin.com/in/andrewpaes/"
+                    },
+                    License = new License
+                    {
+                        Name = "No License",
+                        Url = String.Empty
+                    }
+                });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -43,6 +66,16 @@ namespace Money.Maker.Api
             {
                 app.UseHsts();
             }
+
+            // Enable middleware to serve generated Swagger as a JSON endpoint.
+            app.UseSwagger();
+
+            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), 
+            // specifying the Swagger JSON endpoint.
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Money Maker V1");
+            });
 
             app.UseHttpsRedirection();
             app.UseMvc();

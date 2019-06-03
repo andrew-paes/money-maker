@@ -9,6 +9,9 @@ using Money.Maker.Service.Interfaces;
 
 namespace Money.Maker.Api.Controllers
 {
+    /// <summary>
+    /// Brazilian States
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class StatesController : ControllerBase
@@ -20,7 +23,10 @@ namespace Money.Maker.Api.Controllers
             _service = service;
         }
 
-        // GET api/values
+        /// <summary>
+        /// List all States
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public ActionResult<IEnumerable<State>> Get()
         {
@@ -28,26 +34,22 @@ namespace Money.Maker.Api.Controllers
             return Ok(_service.Get());
         }
 
-        // GET api/values/5
         [HttpGet("{id}")]
         public ActionResult<string> Get(int id)
         {
             return "value";
         }
 
-        // POST api/values
         [HttpPost]
         public void Post([FromBody] string value)
         {
         }
 
-        // PUT api/values/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)
         {
         }
 
-        // DELETE api/values/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
