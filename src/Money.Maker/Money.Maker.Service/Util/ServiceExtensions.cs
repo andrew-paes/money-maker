@@ -23,7 +23,9 @@ namespace Money.Maker.Service.Util
 
             foreach (var assemblyType in assemblyTypeList)
             {
-                IEnumerable<TypeInfo> typesFromAssemblies = assemblies.SelectMany(a => a.DefinedTypes.Where(x => x.GetInterfaces().Contains(assemblyType)));
+                IEnumerable<TypeInfo> typesFromAssemblies = assemblies
+                                                            .SelectMany(a => a.DefinedTypes.Where(x => x.GetInterfaces()
+                                                            .Contains(assemblyType)));
 
                 foreach (var type in typesFromAssemblies)
                 {

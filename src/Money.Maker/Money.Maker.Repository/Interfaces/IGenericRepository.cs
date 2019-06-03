@@ -11,11 +11,11 @@ namespace Money.Maker.Repository.Interfaces
 
         void Add(IList<TEntity> entities);
 
-        void Remove(TEntity entity);
+        void Delete(TEntity entity);
 
-        void Remove(IList<TEntity> entities);
+        void Delete(IList<TEntity> entities);
 
-        TEntity Get(string id);
+        TEntity Get(int id);
 
         Task<IList<TEntity>> Get();
 

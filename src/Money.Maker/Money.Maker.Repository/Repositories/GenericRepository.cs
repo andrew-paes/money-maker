@@ -48,7 +48,7 @@ namespace Money.Maker.Repository.Repositories
             }
         }
 
-        public TEntity Get(string id)
+        public TEntity Get(int id)
         {
             return _context.Set<TEntity>().Find(id);
         }
@@ -60,7 +60,7 @@ namespace Money.Maker.Repository.Repositories
             return list;
         }
 
-        public void Remove(TEntity entity)
+        public void Delete(TEntity entity)
         {
             try
             {
@@ -73,7 +73,7 @@ namespace Money.Maker.Repository.Repositories
             }
         }
 
-        public void Remove(IList<TEntity> entities)
+        public void Delete(IList<TEntity> entities)
         {
             try
             {

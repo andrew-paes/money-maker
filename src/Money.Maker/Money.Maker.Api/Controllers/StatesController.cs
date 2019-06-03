@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using Money.Maker.Domain.DataModels;
-using Money.Maker.Repository;
 using Money.Maker.Service.Interfaces;
 
 namespace Money.Maker.Api.Controllers
@@ -27,32 +23,57 @@ namespace Money.Maker.Api.Controllers
         /// List all States
         /// </summary>
         /// <returns></returns>
+        /// <returns></returns>
+        /// <response code="201">Lis of States found</response>
+        /// <response code="400">No results found</response>
         [HttpGet]
-        public ActionResult<IEnumerable<State>> Get()
-        {
-            //return Ok(_context.States.ToList());
-            return Ok(_service.Get());
-        }
+        [ProducesResponseType(typeof(List<State>), 201)]
+        [ProducesResponseType(typeof(string), 400)]
+        public ActionResult<IEnumerable<State>> GetList() => Ok(_service.Get());
 
+        /// <summary>
+        /// Get State by Id
+        /// </summary>
+        /// <param name="id">State Id</param>
+        /// <returns>State object</returns>
+        /// <response code="201">State found</response>
+        /// <response code="400">Id invalid</response>
         [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
-        {
-            return "value";
-        }
+        [ProducesResponseType(typeof(State), 201)]
+        [ProducesResponseType(typeof(string), 400)]
+        public ActionResult<State> Get(int id) =>  Ok(_service.Get(id));
 
+        /// <summary>
+        /// Insert a new State
+        /// </summary>
+        /// <param name="entity">State model object</param>
+        /// <returns>State object</returns>
+        /// <response code="201">State created</response>
+        /// <response code="400">Model invalid</response>
         [HttpPost]
-        public void Post([FromBody] string value)
-        {
-        }
+        [ProducesResponseType(typeof(State), 201)]
+        [ProducesResponseType(typeof(string), 400)]
+        public ActionResult<State> Post([FromBody] State entity) => Ok(_service.Add(entity));
 
+        /// <summary>
+        /// Update a known State
+        /// </summary>
+        /// <param name="entity">State model object</param>
+        /// <param name="id">State Id</param>
+        /// <returns>State object</returns>
+        /// <response code="201">State updated</response>
+        /// <response code="400">Model invalid</response>
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
+        public ActionResult<State> Put([FromBody] State entity, int id) => Ok(_service.Update(entity,id));
 
+        /// <summary>
+        /// Delete a know State
+        /// </summary>
+        /// <param name="id">State Id</param>
+        /// <returns>State object</returns>
+        /// <response code="201">State deleted</response>
+        /// <response code="400">Id invalid</response>
         [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
+        public void Delete(int id) => Ok(_service.Delete(id));
     }
 }

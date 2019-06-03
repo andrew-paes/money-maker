@@ -10,15 +10,15 @@ namespace Money.Maker.Service.Interfaces
 
         T Add(IList<T> entities);
 
-        T Remove(string id);
+        T Delete(int id);
 
-        T Remove(IList<T> entities);
+        T Delete(IList<T> entities);
 
-        T Get(string id);
+        T Get(int id);
 
-        Task<IList<T>> Get();
+        IList<T> Get();
 
-        T Update(T entity, string id);
+        T Update(T entity, int id);
 
         T Update(IList<T> entity);
     }

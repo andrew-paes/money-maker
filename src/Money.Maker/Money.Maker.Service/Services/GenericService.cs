@@ -36,7 +36,14 @@ namespace Money.Maker.Service.Services
 
         public E Add(E entity)
         {
-            throw new NotImplementedException();
+            E result = null;
+
+            dataTransaction
+                .Execute(
+                    () => result = _genericRepository.Add(entity),
+                    LoadModel);
+
+            return result;
         }
 
         public E Add(IList<E> entities)
@@ -44,15 +51,22 @@ namespace Money.Maker.Service.Services
             throw new NotImplementedException();
         }
 
-        public E Get(string id)
+        public E Get(int id)
         {
-            throw new NotImplementedException();
+            E result = null;
+
+            dataTransaction
+                .Execute(
+                    () => result = _genericRepository.Get(id),
+                    LoadModel);
+
+            return result;
         }
 
-        public async Task<IList<E>> Get()
+        public IList<E> Get()
         {
             IList<E> result = new List<E>();
-            
+
             dataTransaction
                 .Execute(
                     async () => result = await _genericRepository.Get(),
@@ -61,19 +75,61 @@ namespace Money.Maker.Service.Services
             return result;
         }
 
-        public E Remove(string id)
+        public E Delete(int id)
+        {
+            var entity = this.Get(id);
+
+            E result = null;
+
+            if (entity != null && entity.Id > 0)
+            {
+                dataTransaction
+                    .Execute(
+                        () => _genericRepository.Delete(entity),
+                        LoadModel);
+            }
+            else
+            {
+                throw new ArgumentException("Object not found.");
+            }
+
+            return result;
+        }
+
+        public E Delete(IList<E> entities)
         {
             throw new NotImplementedException();
         }
 
-        public E Remove(IList<E> entities)
+        public E Update(E entity, int id)
         {
-            throw new NotImplementedException();
-        }
+            var entityId = entity.GetType().GetProperty("Id").GetValue(entity);
 
-        public E Update(E entity, string id)
-        {
-            throw new NotImplementedException();
+            long tryId = 0;
+
+            if (entityId != null && !String.IsNullOrEmpty(entityId.ToString()))
+            {
+                if(long.TryParse(entityId.ToString(), out tryId))
+                {
+                    if (Convert.ToInt32(entityId.ToString()) != id)
+                    {
+                        throw new ArgumentException("Object Id is not equal to Id specified on URL.");
+                    }
+                }
+                else
+                {
+                    throw new ArgumentException("Object Id must be an Integer.");
+                }
+            }   
+
+            E result = null;
+
+            dataTransaction
+                .Execute(
+                        () => result = _genericRepository.Update(entity),
+                        LoadModel);
+
+            return result;
         }
 
         public E Update(IList<E> entity)
