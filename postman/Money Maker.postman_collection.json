@@ -1,0 +1,41 @@
+{
+	"info": {
+		"_postman_id": "7bddd1b4-d236-4bd1-ab26-b25309f1e4fa",
+		"name": "Money Maker",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "State",
+			"item": [
+				{
+					"name": "List All",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/api/states",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"states"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
