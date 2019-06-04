@@ -12,7 +12,6 @@ namespace Money.Maker.Domain.DataModels
         public MaritalStatus MaritalStatus { get; set; }
         public Address Address { get; set; }
         public City BirthPlace { get; set; }
-        public List<Product> Products { get; set; }
         public List<Transaction> Transactions { get; set; }
     }
 }

@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Money.Maker.Repository;
 
 namespace Money.Maker.Repository.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20190604150031_CustomerProduct1Migration")]
+    partial class CustomerProduct1Migration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -335,15 +337,11 @@ namespace Money.Maker.Repository.Migrations
 
                     b.Property<DateTime?>("ModifiedDate");
 
-                    b.Property<int?>("ProductId");
-
                     b.Property<bool>("Type");
 
                     b.HasKey("Id");
 
                     b.HasIndex("CustomerId");
-
-                    b.HasIndex("ProductId");
 
                     b.ToTable("Transactions");
                 });
@@ -431,10 +429,6 @@ namespace Money.Maker.Repository.Migrations
                     b.HasOne("Money.Maker.Domain.DataModels.Customer")
                         .WithMany("Transactions")
                         .HasForeignKey("CustomerId");
-
-                    b.HasOne("Money.Maker.Domain.DataModels.Product")
-                        .WithMany("Transactions")
-                        .HasForeignKey("ProductId");
                 });
 #pragma warning restore 612, 618
         }

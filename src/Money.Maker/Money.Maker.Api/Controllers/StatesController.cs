@@ -24,7 +24,7 @@ namespace Money.Maker.Api.Controllers
         /// </summary>
         /// <returns></returns>
         /// <returns></returns>
-        /// <response code="201">Lis of States found</response>
+        /// <response code="201">List of States found</response>
         /// <response code="400">No results found</response>
         [HttpGet]
         [ProducesResponseType(typeof(List<State>), 201)]
@@ -64,6 +64,8 @@ namespace Money.Maker.Api.Controllers
         /// <response code="201">State updated</response>
         /// <response code="400">Model invalid</response>
         [HttpPut("{id}")]
+        [ProducesResponseType(typeof(State), 201)]
+        [ProducesResponseType(typeof(string), 400)]
         public ActionResult<State> Put([FromBody] State entity, int id) => Ok(_service.Update(entity,id));
 
         /// <summary>
@@ -74,6 +76,7 @@ namespace Money.Maker.Api.Controllers
         /// <response code="201">State deleted</response>
         /// <response code="400">Id invalid</response>
         [HttpDelete("{id}")]
+        [ProducesResponseType(typeof(string), 400)]
         public void Delete(int id) => Ok(_service.Delete(id));
     }
 }

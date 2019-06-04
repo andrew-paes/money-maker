@@ -4,11 +4,11 @@ using Money.Maker.Repository.Interfaces;
 
 namespace Money.Maker.Repository.Repositories
 {
-    public class StateRepository : GenericRepository<State>, IStateRepository
+    public class TransactionRepository : GenericRepository<Transaction>, ITransactionRepository
     {
         private new readonly DataContext _context;
 
-        public StateRepository(DataContext context, IDbContextTransaction transaction)
+        public TransactionRepository(DataContext context, IDbContextTransaction transaction)
             : base(context, transaction)
         {
             _context = context;

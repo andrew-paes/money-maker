@@ -24,19 +24,21 @@ namespace Money.Maker.Service.Services
             dataTransaction = new DataTransaction();
         }
 
-        protected R GetRepository(DbContext context, IDbContextTransaction transaction)
+        protected R GetRepository(DbContext dbContext, IDbContextTransaction transaction)
         {
-            return (R)Activator.CreateInstance(typeof(R), context, transaction);
+            return (R)Activator.CreateInstance(typeof(R), dbContext, transaction);
         }
 
-        private void LoadModel(DbContext context, IDbContextTransaction transaction)
+        private void LoadModel(DbContext dbContext, IDbContextTransaction transaction)
         {
-            _genericRepository = GetRepository(context, transaction);
+            _genericRepository = GetRepository(dbContext, transaction);
         }
 
         public E Add(E entity)
         {
             E result = null;
+
+            entity.CreatedDate = DateTime.Now;
 
             dataTransaction
                 .Execute(
@@ -123,6 +125,8 @@ namespace Money.Maker.Service.Services
             }   
 
             E result = null;
+
+            entity.ModifiedDate = DateTime.Now;
 
             dataTransaction
                 .Execute(

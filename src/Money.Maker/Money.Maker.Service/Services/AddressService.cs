@@ -4,7 +4,7 @@ using Money.Maker.Service.Interfaces;
 
 namespace Money.Maker.Service.Services
 {
-    public class StateService : GenericService<State, StateRepository>, IStateService
+    public class AddressService : GenericService<Address, AddressRepository>, IAddressService
     {
 
     }

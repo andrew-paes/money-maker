@@ -75,16 +75,7 @@ namespace Money.Maker.Repository.Repositories
 
         public void Delete(IList<TEntity> entities)
         {
-            try
-            {
-                _context.Set<TEntity>().RemoveRange(entities);
-
-                _context.SaveChanges();
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            throw new NotImplementedException();
         }
 
         public TEntity Update(TEntity entity)
@@ -92,6 +83,7 @@ namespace Money.Maker.Repository.Repositories
             try
             {
                 _context.Entry(entity).State = EntityState.Modified;
+                _context.Entry(entity).Property(o => o.CreatedDate).IsModified = false;
 
                 _context.SaveChanges();
             }
@@ -105,16 +97,7 @@ namespace Money.Maker.Repository.Repositories
 
         public IList<TEntity> Update(IList<TEntity> entities)
         {
-            try
-            {
-                _context.SaveChanges();
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-
-            return entities;
+            throw new NotImplementedException();
         }
     }
 }

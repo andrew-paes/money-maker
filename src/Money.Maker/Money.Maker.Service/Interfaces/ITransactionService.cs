@@ -2,7 +2,7 @@
 
 namespace Money.Maker.Service.Interfaces
 {
-    public interface IStateService : IGenericService<State>
+    public interface ITransactionService : IGenericService<Transaction>
     {
 
     }

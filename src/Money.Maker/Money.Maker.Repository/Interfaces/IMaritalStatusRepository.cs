@@ -2,7 +2,7 @@
 
 namespace Money.Maker.Repository.Interfaces
 {
-    public interface IStateRepository : IGenericRepository<State>
+    public interface IMaritalStatusRepository : IGenericRepository<MaritalStatus>
     {
 
     }

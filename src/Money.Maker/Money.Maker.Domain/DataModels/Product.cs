@@ -10,5 +10,6 @@ namespace Money.Maker.Domain.DataModels
         public String Description { get; set; }
         public Decimal ManagementFee { get; set; }
         public Decimal IncomeTax { get; set; }
+        public List<Transaction> Transactions { get; set; }
     }
 }
